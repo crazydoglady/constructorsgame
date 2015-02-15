@@ -1,0 +1,80 @@
+h2 {
+  color: #78d461;
+  margin: 0 0 0 1%;
+  text-decoration: underline; }
+
+h3 {
+  color: #78d461;
+  margin: 0 0 0 1%; }
+
+body {
+  font-family: courier;
+  background: #001400;
+  margin: 0;
+  padding: 0; }
+
+.enter {
+  display: none;
+  min-height: 900px;
+  width: 100%;
+  background: linear-gradient(rgba(0, 158, 0, 0.3), rgba(0, 158, 0, 0.3)), url('images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .enter button {
+    font-family: courier;
+    color: #148228;
+    background: #23c225;
+    width: 200px;
+    position: 0 0;
+    text-align: center;
+    vertical-align: bottom; }
+
+.main {
+  display: none; }
+
+section {
+  width: 100%;
+  margin-left: 4%; }
+
+.top {
+  width: 100%;
+  height: 150px; }
+
+article {
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  display: inline-block;
+  color: #23c225;
+  height: 500px;
+  background: #001400;
+  border: 3px solid #23c225; }
+
+.logbook {
+  overflow: scroll;
+  font-size: 20px; }
+  .logbook h2 {
+    color: #78d461;
+    margin: 0 0 0 1%;
+    text-decoration: underline;
+    font-size: 2em; }
+
+.middle {
+  background: url('images/FoxMulder.png');
+  background-size: 100%; }
+
+.inventory {
+  width: 97%;
+  height: 48%;
+  margin: 0 0 0 1%;
+  border: 2px dotted #148228;
+  overflow: scroll; }
+
+.fa {
+  color: #148228;
+  margin: 2% 0 0 5%;
+  display: none; }
+
+.show {
+  display: inline-block; }
