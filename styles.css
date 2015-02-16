@@ -22,23 +22,27 @@ body {
   background-size: cover; }
   .enter button {
     font-family: courier;
-    color: #148228;
+    font-size: 1em;
+    color: #001400;
     background: #23c225;
-    width: 200px;
-    position: 0 0;
+    width: 300px;
+    height: 30px;
     text-align: center;
-    vertical-align: bottom; }
+    margin: 45% 0 0 25%; }
 
 .main {
-  display: none; }
+  display: none;
+  width: 100%; }
 
 section {
   width: 100%;
   margin-left: 4%; }
 
 .top {
-  width: 100%;
-  height: 150px; }
+  width: 75%;
+  margin: 3% 0 0 12%;
+  height: 150px;
+  color: #23c225; }
 
 article {
   vertical-align: top;
@@ -54,6 +58,8 @@ article {
 .logbook {
   overflow: scroll;
   font-size: 20px; }
+  .logbook p {
+    margin-left: 5px; }
   .logbook h2 {
     color: #78d461;
     margin: 0 0 0 1%;
@@ -64,17 +70,31 @@ article {
   background: url('images/FoxMulder.png');
   background-size: 100%; }
 
+.status ul {
+  list-style-type: none; }
+
 .inventory {
   width: 97%;
-  height: 48%;
-  margin: 0 0 0 1%;
+  height: 50%;
+  margin: 23% 0 0 1%;
   border: 2px dotted #148228;
-  overflow: scroll; }
+  overflow: scroll;
+  position: relative; }
 
 .fa {
   color: #148228;
   margin: 2% 0 0 5%;
   display: none; }
+
+.bottom form {
+  width: 50%;
+  margin: 10px 0 0 0; }
+  .bottom form input {
+    width: 400px; }
+.bottom button {
+  width: 200px;
+  display: inline-block;
+  margin: 10px 0 0 0; }
 
 .show {
   display: inline-block; }
