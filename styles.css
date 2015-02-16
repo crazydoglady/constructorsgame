@@ -86,15 +86,16 @@ article {
   margin: 2% 0 0 5%;
   display: none; }
 
-.bottom form {
-  width: 50%;
-  margin: 10px 0 0 0; }
-  .bottom form input {
-    width: 400px; }
-.bottom button {
-  width: 200px;
-  display: inline-block;
-  margin: 10px 0 0 0; }
+.bottom {
+  height: 150px; }
+
+.follow {
+  display: none;
+  width: 200px; }
+
+.investigate {
+  display: none;
+  width: 200px; }
 
 .show {
   display: inline-block; }

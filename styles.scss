@@ -110,18 +110,15 @@ article {
   display: none;
 }
 .bottom {
-  form{
-    width: 50%;
-    margin: 10px 0 0 0;
-    input{
-      width: 400px;
-    }
-  }
-  button{
-    width: 200px;
-    display: inline-block;
-    margin: 10px 0 0 0;
-  }
+  height: 150px;
+}
+.follow {
+  display: none;
+  width: 200px;
+}
+.investigate {
+  display: none;
+  width: 200px;
 }
 
 .show {

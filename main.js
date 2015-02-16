@@ -1,19 +1,25 @@
 var locations = ["Seattle", "Washington DC", "Chicago", "Charleston", "Philadelphia", "New York", "Los Angeles", "St. Louis", "Baltimore", "Dallas", "Missoula", "Denver", "Tulsa", "New Orleans", "Albequerque", "Las Vegas"];
 var foes = ["aliens", "crop circles", "the Mothman", "Chupacabra", "bigfoot", "the Loch Ness Monster", "a werewolf", "ghosts", "zombie neighbors"];
 var instances = ["1913", "1895", "1954", "1972", "1984", "1900", "1995"];
-// var clues = ["photograph", "transcript", "handwritten note", "anonymous phonecall", "police reports", "newspaper article"];
-// var contacts = ["Sheriff", "Mr. Smith", "The Lone Gunmen", "Informant X", "Walter Skinner", "FBI Crime Lab", "Alex Krycek"];
+var clues = ["photograph", "transcript", "handwritten note", "phone call", " police reports", "newspaper article"];
+var contacts = ["the local Sheriff", "The Lone Gunmen", "Informant X", "Walter Skinner", "FBI Crime Lab"];
 var foe;
 var contact;
-var evidence;
+var clue;
 var city;
 var health = 100;
 
 
 //constructors
+function Evidence() {
+    clue = clues[Math.floor(Math.random() * clues.length)];
+    contact = contacts[Math.floor(Math.random() * contacts.length)];
+    $('.logbook').append("<p>You receive a " + clue +" from " + contact + "")
+};
+
 function Investigate() {
   if (foe === foes[0]) {
-    $('.logbook').append("<p> You pursue your attacker into the woods. You are distracted be something partially covered by branches and leaves.</p>");
+    $('.logbook').append("<p> You follow the clue into the woods. You are distracted be something partially covered by branches and leaves.</p>");
     health -=30;
       $('.logbook').append("<p>Initial readings of the scene indicate hight levels of radiation. You have been exposed and lose 30 health.</p>");
       xFiles.health = new Health() ;
@@ -53,18 +59,21 @@ function Investigate() {
 
   //health constructor
   function Health() {
-    $('.fa').removeClass('show');
+    $('.fa-meh-o').removeClass('show');
+    $('.fa-frown-o').removeClass('show');
     console.log("health", health);
     if (health >= 70) {
       $('.fa-smile-o').addClass('show');
     }else if (30 < health < 70) {
       $('.fa-meh-o').addClass('show');
-      $('.fa-meh-o').siblings().removeClass('show');
-    }else if (health < 30){
-      $('.fa-meh-o').addClass('show');
-      $('.fa-meh-o').siblings().removeClass('show');
-    }else {
-      $('.fa-smile-o').addClass('show');
+      $('.fa-smile-o').removeClass('show');
+      $('.fa-frown-o').removeClass('show');
+    }else if (health < 30 < 0){
+      $('.fa-frown-o').addClass('show');
+      $('.fa-smile-o').removeClass('show');
+      $('.fa-meh-o').removeClass('show');
+    }else if (health <= 0) {
+      $('.fa-times-circle').addClass('show');
     }
 
   };
@@ -95,6 +104,8 @@ function Mission() {
     health -= damage;
     $('.logbook').append("<p> Your health has dropped to " + health + "%. </p>");
     xFiles.health = new Health();
+    $('.investigate').addClass('show');
+    $('.abandon').addClass('show');
   };
   };
 
@@ -132,6 +143,18 @@ var xFiles = {
         $('.top h3').remove();
         xFiles.foe = new Critter();
         xFiles.mission = new Mission();
+      });
+
+      $('.investigate').on('click', function(event){
+        event.preventDefault();
+        xFiles.clue = new Evidence();
+        $('.investigate').removeClass('show');
+        $('.follow').addClass('show');
+      });
+      $('.follow').on('click', function(event){
+        event.preventDefault();
+        xFiles.clue = new Investigate();
+        $('.follow').removeClass('show');
       });
 
       $('.fa-medkit').on('click', function(event){
