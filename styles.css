@@ -1,7 +1,9 @@
 h2 {
   color: #78d461;
   margin: 0 0 0 1%;
-  text-decoration: underline; }
+  text-decoration: underline;
+  vertical-align: top;
+  z-index: 1; }
 
 h3 {
   color: #78d461;
@@ -15,7 +17,7 @@ body {
 
 .enter {
   display: none;
-  min-height: 900px;
+  height: 1000px;
   width: 100%;
   background: linear-gradient(rgba(0, 158, 0, 0.3), rgba(0, 158, 0, 0.3)), url('images/background.jpg');
   background-repeat: no-repeat;
@@ -40,7 +42,7 @@ section {
 
 .top {
   width: 75%;
-  margin: 3% 0 0 12%;
+  margin: 6% 0 0 12%;
   height: 150px;
   color: #23c225; }
 

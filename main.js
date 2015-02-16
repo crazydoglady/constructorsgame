@@ -1,7 +1,7 @@
 var locations = ["Seattle", "Washington DC", "Chicago", "Charleston", "Philadelphia", "New York", "Los Angeles", "St. Louis", "Baltimore", "Dallas", "Missoula", "Denver", "Tulsa", "New Orleans", "Albequerque", "Las Vegas"];
 var foes = ["aliens", "crop circles", "the Mothman", "Chupacabra", "bigfoot", "the Loch Ness Monster", "a werewolf", "ghosts", "zombie neighbors"];
 var instances = ["1913", "1895", "1954", "1972", "1984", "1900", "1995"];
-var clues = ["photograph", "transcript", "handwritten note", "phone call", " police reports", "newspaper article"];
+var clues = ["photograph", "transcript", "handwritten note", "phone call", " police report", "newspaper article"];
 var contacts = ["the local Sheriff", "The Lone Gunmen", "Informant X", "Walter Skinner", "FBI Crime Lab"];
 var foe;
 var contact;
@@ -19,9 +19,10 @@ function Evidence() {
 
 function Investigate() {
   if (foe === foes[0]) {
-    $('.logbook').append("<p> You follow the clue into the woods. You are distracted be something partially covered by branches and leaves.</p>");
+    $('.logbook').append("<p> You follow the evidence disclosed in the" + clue + " into the woods. You are distracted be something partially covered by branches and leaves. An unidentified vessel has been added to your inventory.</p>");
     health -=30;
-      $('.logbook').append("<p>Initial readings of the scene indicate hight levels of radiation. You have been exposed and lose 30 health.</p>");
+      $('.logbook').append("<p>Initial evaluation of the site indicate hight levels of radiation. You have been exposed and lose 30 health.</p>");
+      $('.fa-rocket').addClass('show');
       xFiles.health = new Health() ;
     }else if (foe === foes[1]){
       $('.logbook').append("<p> You pursue your attacker through the field. It gets away. You take no further damage and you find a medkit.</p>");
@@ -62,18 +63,21 @@ function Investigate() {
     $('.fa-meh-o').removeClass('show');
     $('.fa-frown-o').removeClass('show');
     console.log("health", health);
-    if (health >= 70) {
+    if (health > 69) {
       $('.fa-smile-o').addClass('show');
     }else if (30 < health < 70) {
       $('.fa-meh-o').addClass('show');
       $('.fa-smile-o').removeClass('show');
       $('.fa-frown-o').removeClass('show');
-    }else if (health < 30 < 0){
+    }else if (30 < health > 0){
       $('.fa-frown-o').addClass('show');
       $('.fa-smile-o').removeClass('show');
       $('.fa-meh-o').removeClass('show');
-    }else if (health <= 0) {
+    }else if (0 > health) {
       $('.fa-times-circle').addClass('show');
+      $('.fa-frown-o').removeClass('show');
+      $('.fa-smile-o').removeClass('show');
+      $('.fa-meh-o').removeClass('show');
     }
 
   };
@@ -161,6 +165,7 @@ var xFiles = {
         health += 30;
         $('.logbook').append("<p>You have used your Medkit and added 30 to your health.</p>");
         $('.fa-medkit').removeClass('show');
+        xFiles.clue = new Health();
       });
   },
   renderGame: function() {
