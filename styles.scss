@@ -16,6 +16,11 @@ h3 {
   color: $pale;
   margin: 0 0 0 1%;
 }
+h4 {
+  font-style: italic;
+  color: $pale;
+  font-weight: lighter;
+}
 
 body {
   font-family: courier;
@@ -102,7 +107,7 @@ article {
   height: 50%;
   margin: 23% 0 0 1%;
   border: 2px dotted $dark;
-  overflow: scroll;
+  overflow: auto;
   position: relative;
 }
 
@@ -111,6 +116,16 @@ article {
   margin: 2% 0 0 5%;
   display: none;
 }
+.fa-meh-o {
+  color: yellow;
+}
+.fa-frown-o{
+  color: orange;
+}
+.fa-times-circle {
+  color: red;
+}
+
 .bottom {
   height: 150px;
 }
